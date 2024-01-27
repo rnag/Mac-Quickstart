@@ -1,6 +1,12 @@
 #!/bin/bash
 
-# Bash Script to Bootstrap SSH Key setup and config for GitHub
+# Bash Script to Bootstrap SSH Key setup and config for GitHub,
+# ideally on a new personal laptop or machine.
+#
+# Before running the script, change values inside `GH_USERS` below!
+#
+# Usage:
+#   ./bootstrap_ssh_for_github.sh
 #
 # Rationale:
 #   You may use the same computer for work and personal development

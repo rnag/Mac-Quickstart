@@ -383,6 +383,13 @@ cat <<EOT >> "${global_gc_real}"
 	name = ${FULL_NAME}
 	email = ${email}
 
+[init]
+        defaultBranch = main
+
+[push]
+        followTags = true
+        autoSetupRemote = true
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 

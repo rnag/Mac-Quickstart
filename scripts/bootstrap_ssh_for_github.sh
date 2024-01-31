@@ -162,7 +162,12 @@ function install_gpg_tools() {
         # shellcheck disable=SC2088
         echo "~/.zshenv: Updated (and sourced) file"
 
-        echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+        if [ -f ~/.gnupg/gpg-agent.conf ]; then
+            echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+        else
+            echo "pinentry-program /opt/homebrew/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
+        fi
+
         # shellcheck disable=SC2088
         echo "~/.gnupg/gpg-agent.conf: Updated file to use pinentry-mac"
 

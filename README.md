@@ -4,7 +4,7 @@ A collection of scripts and commands useful for "quick-start" setup of a brand-n
 
 ## Bootstrap SSH for GitHub
 
-> **_Why?_** Suppose you have 2 GitHub accounts. One for _personal_, another for _work_. The **best** (and **only**) approach for this scenario is setting up SSH with `git`.
+> **_Why?_** Suppose you have 2 GitHub accounts. One for _personal_, another for _work_. The **best** (and **only**) approach for this scenario is to use SSH with `git`.
 
 Start out by downloading the `bootstrap_ssh_for_github.sh` shell script
 to [set up SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) (and GPG for [commit verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification)) on GitHub:

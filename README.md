@@ -72,4 +72,4 @@ Let me know if there are any issues or feedback.
 
 Feel free to reach out [via email](mailto:me@ritviknag.com).
 
-You can also [open an issue](https://github.com/rnag/Mac-Quickstart/issues) if there is a feature or suggestion you'd like to see. Contributions are likewise welcome.
+You can also [open an issue](https://github.com/rnag/Mac-Quickstart/issues) if there is a feature or suggestion you'd like to see. Contributions are welcome.

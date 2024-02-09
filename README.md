@@ -70,7 +70,7 @@ Now, try that again:
 git push
 ```
 
-## Feedback
+## Questions?
 
 Let me know if there are any issues or feedback.
 

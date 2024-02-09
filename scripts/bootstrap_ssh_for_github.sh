@@ -29,28 +29,8 @@
 #  ├── id_ed25519_<gh_user>.pub
 #  ├── known_hosts
 #
-# ## Common Issues
-#
-# After running script, you still receive
-# a `403` error upon `git push`.
-#
-# ```console
-# git push
-# remote: Permission to <user>/<repo>.git denied to <your-user>.
-# fatal: unable to access 'https://github.com/<user>/<repo>/': The requested URL returned error: 403
-# ```
-
-# Cause: You might be currently setup to use HTTPS for git.
-#
-# Solution: Add the following lines
-# to your `~/.gitconfig` file.
-#
-# ```
-# [url "git@github.com:"]
-# 	insteadOf = https://github.com/
-# [url "git://"]
-# 	insteadOf = https://
-# ```
+# For more info and common issues, please see README here:
+#   https://github.com/rnag/Mac-Quickstart/blob/main/README.md
 #
 # Sources:
 #   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh

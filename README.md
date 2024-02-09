@@ -5,7 +5,7 @@ A collection of scripts and commands useful for "quick-start" setup of a brand-n
 ## Bootstrap SSH for GitHub
 
 Start out by downloading the `bootstrap_ssh_for_github.sh` shell script
-to set up SSH (and GPG for commit verification) on GitHub:
+to [set up SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) (and GPG for [commit verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification)) on GitHub:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/rnag/Mac-Quickstart/main/scripts/bootstrap_ssh_for_github.sh -o bootstrap_ssh_for_github.sh

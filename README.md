@@ -2,6 +2,12 @@
 
 A collection of scripts and commands useful for "quick-start" setup of a brand-new Macbook Laptop (Apple Silicon preferred)
 
+-   [Bootstrap SSH for GitHub](#bootstrap-ssh-for-github)
+    -   [Common Issues](#common-issues)
+        -   [403 Forbidden with `git push`](#403-forbidden-with-git-push)
+        -   [Write Access Not Granted with `git push`](#write-access-not-granted-with-git-push)
+-   [Questions?](#questions)
+
 ## Bootstrap SSH for GitHub
 
 > **_Why?_** Suppose you have 2 GitHub accounts. One for _personal_, another for _work_.
@@ -55,9 +61,13 @@ remote: Permission to <user>/<repo>.git denied to <your-user>.
 fatal: unable to access 'https://github.com/<user>/<repo>/': The requested URL returned error: 403
 ```
 
-**Cause**: You might be currently set up to use HTTPS (instead of SSH) for `git`.
+##### Cause
 
-**Solution**: Add the following lines to your `~/.gitconfig` file.
+You might be currently set up to use HTTPS (instead of SSH) for `git`.
+
+##### Solution
+
+Add the following lines to your `~/.gitconfig` file.
 
 ```ini
 [url "git@github.com:"]
@@ -85,9 +95,11 @@ Please make sure you have the correct access rights
 and the repository exists.
 ```
 
-**Cause**: I'm not entirely certain on the cause, but the below solution fix it for me.
+##### Cause
 
-**Solution**:
+I'm not entirely certain on the cause, but the below solution fix it for me.
+
+##### Solution
 
 If using Enterprise Cloud, you might need to
 [authorize the SSH key for use with SAML](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on).

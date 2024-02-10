@@ -44,8 +44,10 @@ Watch for user input.
 
 ### Common Issues
 
+#### 403 Forbidden with `git push`
+
 After running script, you still receive
-a `403` error upon `git push`.
+an HTTP `403` error upon `git push`.
 
 ```console
 $ git push
@@ -68,6 +70,41 @@ Now, try that again:
 
 ```sh
 git push
+```
+
+#### Write Access Not Granted with `git push`
+
+After running script, you now receive "Write access to repository not granted" message with `git push`.
+
+```console
+$ git push
+ERROR: Write access to repository not granted.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+**Cause**: I'm not entirely certain on the cause, but the below solution fix it for me.
+
+**Solution**:
+
+If using Enterprise Cloud, you might need to
+[authorize the SSH key for use with SAML](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on).
+
+Under [Settings > SSH and GPG keys](https://github.com/settings/keys) on your target GitHub account, find your SSH key and ensure SSO is enabled.
+
+Choose `Configure SSO` and `Authorize` - see image below.
+
+![Configure SSO for SSH Key](./images/configure-sso-for-ssh-key.png)
+
+Just to be safe, restart `ssh-agent` and ensure SSH key is added to agent:
+
+> Note: Replace `<user>` with your GH username.
+
+```sh
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_ed25519_<user>
 ```
 
 ## Questions?

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# just adding these at TOP for now LOL!
+npm install -g npm-check-updates
+
 # HOMEBREW
 function installBREW() {
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

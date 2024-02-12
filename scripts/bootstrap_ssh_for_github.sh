@@ -371,8 +371,9 @@ setup_git_config() {
 [tag]
     gpgsign = true
 
-[url "git@github.com-${name}"]
-    insteadOf = git@github.com
+[url "git@github.com-${name}:"]
+    insteadOf = git@github.com:
+    insteadOf = https://github.com/
 
 EOT
 
@@ -393,12 +394,6 @@ cat <<EOT >> "${global_gc_real}"
 [push]
         followTags = true
         autoSetupRemote = true
-
-[url "git@github.com:"]
-	insteadOf = https://github.com/
-
-[url "git://"]
-	insteadOf = https://
 
 EOT
 

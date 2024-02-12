@@ -67,13 +67,12 @@ You might be currently set up to use HTTPS (instead of SSH) for `git`.
 
 ##### Solution
 
-Add the following lines to your `~/.gitconfig` file.
+Add the following lines to your `~/.dotfiles/<Project>-github.gitconfig` file.
 
 ```ini
-[url "git@github.com:"]
-	insteadOf = https://github.com/
-[url "git://"]
-	insteadOf = https://
+[url "git@github.com-<user>:"]
+    insteadOf = git@github.com:
+    insteadOf = https://github.com/
 ```
 
 Now, try that again:
@@ -139,6 +138,12 @@ ssh-add ~/.ssh/id_ed25519_<user>
 Run `git push` again, and should have no errors.
 
 Also, open a new terminal window to confirm with `ssh-add -l` that all your identities are preserved in a new shell session.
+
+If the issue persists, there could be a problem with the clone or push URL for a project. For example, using HTTPS instead of SSH.
+
+Note that `insteadOf` in git config does not chain. [This SO post][1] (along with its answer) might be helpful.
+
+[1]: https://stackoverflow.com/q/77983896/10237506
 
 ## Questions?
 

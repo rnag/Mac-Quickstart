@@ -73,7 +73,7 @@ Note that `insteadOf` in git config does not chain. [This SO post][1] (along wit
 
 Add the following lines to your `~/.dotfiles/<Project>-github.gitconfig` file.
 
-> Replace <user> with your GitHub username.
+> Replace \<user\> with your GitHub username.
 
 ```ini
 [url "git@github.com-<user>:"]

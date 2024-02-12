@@ -72,7 +72,7 @@ DEVICE_NAME=$(if command -v scutil >/dev/null 2>&1; then scutil --get ComputerNa
 
 # Start the ssh-agent in the background.
 # not sure it's needed?
-# eval "$(ssh-agent -s)"
+test -z "$SSH_AUTH_SOCK" && eval "$(ssh-agent -s)"
 
 # shellcheck disable=SC2088
 ssh_config="~/.ssh/config"

@@ -97,9 +97,13 @@ and the repository exists.
 
 ##### Cause
 
-I'm not entirely certain on the cause, but the below solution fix it for me.
+I'm not entirely certain on the cause, but in my case it turns it out I had extraneous identities on `ssh-agent` that I had previously deleted.
+
+I also had too many `ssh-agent` processes running, which could have contributed to the issue.
 
 ##### Solution
+
+> See [my answer on SO](https://stackoverflow.com/a/77982773/10237506), for the full steps I ran.
 
 If using Enterprise Cloud, you might need to
 [authorize the SSH key for use with SAML](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on).
@@ -110,14 +114,31 @@ Choose `Configure SSO` and `Authorize` - see image below.
 
 ![Configure SSO for SSH Key](./images/configure-sso-for-ssh-key.png)
 
-Just to be safe, restart `ssh-agent` and ensure SSH key is added to agent:
+Next, to be safe I closed most if not all open terminal windows.
+
+Then to kill all running `ssh-agent` processes, I ran:
+
+```sh
+kill $(pgrep ssh-agent)
+```
+
+Just to be safe, restart `ssh-agent` if needed:
+
+```sh
+test -z "$SSH_AUTH_SOCK" && eval "$(ssh-agent -s)"
+```
+
+Now ensure any SSH key(s) are added to the agent:
 
 > Note: Replace `<user>` with your GH username.
 
 ```sh
-$ eval "$(ssh-agent -s)"
-$ ssh-add ~/.ssh/id_ed25519_<user>
+ssh-add ~/.ssh/id_ed25519_<user>
 ```
+
+Run `git push` again, and should have no errors.
+
+Also, open a new terminal window to confirm with `ssh-add -l` that all your identities are preserved in a new shell session.
 
 ## Questions?
 

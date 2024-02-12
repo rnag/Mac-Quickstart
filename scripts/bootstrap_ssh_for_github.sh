@@ -166,6 +166,10 @@ function install_gpg_tools() {
         echo "~/.zshenv: Updated (and sourced) file"
 
         mkdir -p ~/.gnupg
+        # This fixes the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error while using Gnupg.
+        # Credits: https://gist.github.com/oseme-techguy/bae2e309c084d93b75a9b25f49718f85
+        chmod -R u=rw,u+X,go= ~/.gnupg
+
         echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
         # shellcheck disable=SC2088
         echo "~/.gnupg/gpg-agent.conf: Updated file to use pinentry-mac"

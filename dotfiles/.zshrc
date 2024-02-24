@@ -14,6 +14,23 @@ alias gpgl='gpg --list-secret-keys'
 #   $ git commit -m "<msg>"
 alias gca='git commit -am $@'
 
+# Serve Jekyll Site on Localhost!
+alias jb='bundle exec jekyll serve -low'
+
+# PNPM - an alternative to NPM and Yarn, but faster!
+alias pn=pnpm
+
+# GitHub CLI - easy way to clone a user's repo
+rc() {
+    command -v gh >/dev/null 2>&1 || brew install gh
+    command -v sk >/dev/null 2>&1 || brew install sk
+    if [ $# -eq 0 ]; then
+        gh repo clone $(gh repo list --json name -q '.[] | .name' | sk)
+    else
+        gh repo clone "$@"
+    fi
+}
+
 # delete GPG key
 gpgd () {
     gpg --batch --yes --delete-secret-key $1

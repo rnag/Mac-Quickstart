@@ -1,10 +1,17 @@
 # tap "homebrew/cask"
 
+brew "git"
 brew "gh"
+brew "tree"
+brew "pnpm"
+brew "pyenv"
+brew "rbenv"
+brew "ruby-build"
+brew "gnupg"
+brew "pinentry-mac"
 
 # brew "awscli"
 # brew "diff-so-fancy"
-# brew "git"
 # brew "python"
 # brew "zsh"
 # brew "zsh-autosuggestions"

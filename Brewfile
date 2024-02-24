@@ -1,4 +1,7 @@
 # tap "homebrew/cask"
+
+brew "gh"
+
 # brew "awscli"
 # brew "diff-so-fancy"
 # brew "git"

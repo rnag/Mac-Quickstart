@@ -386,6 +386,9 @@ EOT
     # shellcheck disable=SC2086
     echo ${project_gitconfig}: added project .gitconfig
 
+# also set up `gpg.program` as per:
+#   https://stackoverflow.com/a/37261769/10237506
+
 if [ ! -f "${global_gc_real}" ]; then
 cat <<EOT >> "${global_gc_real}"
 [user]
@@ -398,6 +401,9 @@ cat <<EOT >> "${global_gc_real}"
 [push]
         followTags = true
         autoSetupRemote = true
+
+[gpg]
+        program = $(which gpg)
 
 EOT
 

@@ -6,6 +6,7 @@ A collection of scripts and commands useful for "quick-start" setup of a brand-n
     -   [Common Issues](#common-issues)
         -   [403 Forbidden with `git push`](#403-forbidden-with-git-push)
         -   [Write Access Not Granted with `git push`](#write-access-not-granted-with-git-push)
+        -   [Error: Cannot run GPG](#error-cannot-run-gpg)
 -   [Questions?](#questions)
 
 ## Bootstrap SSH for GitHub
@@ -144,6 +145,29 @@ ssh-add ~/.ssh/id_ed25519_<user>
 Run `git push` again, and should have no errors.
 
 Also, open a new terminal window to confirm with `ssh-add -l` that all your identities are preserved in a new shell session.
+
+#### Error: Cannot run GPG
+
+> This error is usually seen in an IDE Terminal.
+
+When committing code, you see:
+```
+error: cannot run gpg: No such file or directory
+error: gpg failed to sign the data
+fatal: failed to write commit object
+```
+
+##### Cause
+
+This [StackOverflow question](https://stackoverflow.com/questions/36941533/git-hub-desktop-on-mac-error-cannot-run-gpg-no-such-file-or-directory) might help.
+
+##### Solution
+
+Run the following command to resolve the issue:
+
+```sh
+git config --global gpg.program "$(which gpg)"
+```
 
 ## Questions?
 
